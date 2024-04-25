@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          testing git
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function Square() {
+  const [value, setValue] = useState(null)  //the value of variable value is preset to null, as it's passed to useState at first
+  function handleClick(){
+    setValue('X')
+    console.log("clicked!")
+  }
+  return <button className="square" onClick={handleClick} >{value}</button>;
 }
 
-export default App;
+export default function Board() {
+  return (
+    <>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+    </>
+  );
+}

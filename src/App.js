@@ -5,7 +5,7 @@ import { useState } from "react";
 function Square() {
   const [value, setValue] = useState(null)  //the value of variable value is preset to null, as it's passed to useState at first
   function handleClick(){
-    setValue('X')
+    setValue('O')
     console.log("clicked!")
   }
   return <button className="square" onClick={handleClick} >{value}</button>;
